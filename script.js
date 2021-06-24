@@ -41,6 +41,18 @@ const switchPlayer = () => {
 };
 
 const reset = () => {
+  if (!hasNotWon) {
+    document
+      .querySelector(".player--winner")
+      .classList.remove("player--winner");
+
+    document.querySelector(`#name--${activePlayer}`).textContent = `Player-${
+      activePlayer + 1
+    }`;
+
+    hasNotWon = true;
+  }
+
   refresh();
   currentScoreEl.textContent = 0;
   finalScoreEl.textContent = 0;
@@ -52,15 +64,12 @@ const reset = () => {
   switchPlayer();
 
   activePlayer = 0;
+  document.querySelector(".player--active").classList.remove("player--active");
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.add("player--active");
+
   diceEl.classList.add("hidden");
-
-  if (!hasNotWon) {
-    document
-      .querySelector(".player--winner")
-      .classList.remove("player--winner");
-
-    hasNotWon = true;
-  }
 };
 
 reset();
@@ -97,13 +106,13 @@ btnHold.addEventListener("click", () => {
 
       if (finalScore >= 50) {
         hasNotWon = false;
-        // alert(`
-        // Congratulations!!! 🎉
-        // Player-${activePlayer + 1} has won!!! 🎊`);
 
         document
           .querySelector(`.player--${activePlayer}`)
           .classList.add("player--winner");
+
+        document.querySelector(`#name--${activePlayer}`).textContent =
+          "Winner! 🎉";
 
         diceEl.classList.add("hidden");
       } else {
