@@ -42,6 +42,47 @@
       <button class="btn btn--hold">📥 Hold</button>
     </main>
 
+    <!-- MODAL -->
+
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+
+      <h2>Rules</h2>
+      <ul>
+        <li>
+          If you roll a 1, you score nothing and it becomes the next player's
+          turn.
+        </li>
+        <li>
+          If you roll any other number, it is added to your recent score and the
+          your turn continues.
+        </li>
+        <li>
+          If you chooses to "hold", your turn total is added to your score, and
+          it becomes the next player's turn.
+        </li>
+        <li>Who's score reaches 50, will win the game.</li>
+      </ul>
+
+      <form>
+        <div class="input-container">
+          <label for="name-1">Enter Player-1 name:</label>
+          <br />
+          <input type="text" class="form-input" name="name-1" id="name-1" />
+        </div>
+
+        <div class="input-container">
+          <label for="name-2">Enter Player-2 name:</label>
+          <br />
+          <input type="text" class="form-input" name="name-2" id="name-2" />
+        </div>
+
+        <div class="submit-btn">Submit</div>
+      </form>
+    </div>
+
+    <div class="overlay hidden"></div>
+
     <script src="script.js"></script>
   </body>
 </html>

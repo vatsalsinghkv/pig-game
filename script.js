@@ -18,6 +18,58 @@ let finalScore;
 
 // FUNCTIONS
 
+// Modal
+
+const formValidation = () => {
+  let name1 = document.getElementById("name-1").value;
+  let name2 = document.getElementById("name-2").value;
+
+  if (name1) {
+    name1 = name1.length > 12 ? name1.slice(0, 12) : name1;
+    document.getElementById("name--0").textContent = name1;
+  }
+  if (name2) {
+    name2 = name2.length > 12 ? name1.slice(0, 12) : name2;
+    document.getElementById("name--1").textContent = name2;
+  }
+};
+
+const openModal = () => {
+  let modal = document.querySelector(".modal");
+  let closeBtn = document.querySelector(".close-modal");
+  let overlay = document.querySelector(".overlay");
+  let submitBtn = document.querySelector(".submit-btn");
+
+  showModal();
+
+  closeBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", closeModal);
+  submitBtn.addEventListener("click", () => {
+    closeModal();
+    formValidation();
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeModal();
+    else if (e.key == "Enter") {
+      closeModal();
+      formValidation();
+    }
+  });
+
+  function showModal() {
+    overlay.classList.remove("hidden");
+    modal.classList.remove("hidden");
+    closeBtn.classList.remove("hidden");
+  }
+
+  function closeModal() {
+    overlay.classList.add("hidden");
+    modal.classList.add("hidden");
+    closeBtn.classList.add("hidden");
+  }
+};
+
 // Refresh: init latest scores
 const refresh = () => {
   currentScoreEl = document.querySelector(`#current--${activePlayer}`);
@@ -73,6 +125,7 @@ const reset = () => {
 };
 
 reset();
+openModal();
 
 // Dice Roll functionality
 btnRoll.addEventListener("click", () => {
