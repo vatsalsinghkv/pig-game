@@ -12,25 +12,26 @@ let hasNotWon = true;
 
 let currentScoreEl;
 let currentScore;
-
 let finalScoreEl;
 let finalScore;
+
+let name = [];
 
 // FUNCTIONS
 
 // Modal
 
 const formValidation = () => {
-  let name1 = document.getElementById("name-1").value;
-  let name2 = document.getElementById("name-2").value;
+  name.push(document.getElementById("name-0").value);
+  name.push(document.getElementById("name-1").value);
 
-  if (name1) {
-    name1 = name1.length > 12 ? name1.slice(0, 12) : name1;
-    document.getElementById("name--0").textContent = name1;
+  if (name[0]) {
+    name[0] = name[0].length > 12 ? name[0].slice(0, 12) : name[0];
+    document.getElementById("name--0").textContent = name[0];
   }
-  if (name2) {
-    name2 = name2.length > 12 ? name1.slice(0, 12) : name2;
-    document.getElementById("name--1").textContent = name2;
+  if (name[1]) {
+    name[1] = name[1].length > 12 ? name[1].slice(0, 12) : name[1];
+    document.getElementById("name--1").textContent = name[1];
   }
 };
 
@@ -98,9 +99,14 @@ const reset = () => {
       .querySelector(".player--winner")
       .classList.remove("player--winner");
 
-    document.querySelector(`#name--${activePlayer}`).textContent = `Player-${
-      activePlayer + 1
-    }`;
+    if (name[activePlayer]) {
+      document.querySelector(`#name--${activePlayer}`).textContent =
+        name[activePlayer];
+    } else {
+      document.querySelector(`#name--${activePlayer}`).textContent = `Player-${
+        activePlayer + 1
+      }`;
+    }
 
     hasNotWon = true;
   }
