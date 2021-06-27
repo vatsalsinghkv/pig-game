@@ -401,7 +401,8 @@ form {
   }
 
   .modal {
-    padding: 3rem;
+    padding: 4.5rem;
+    width: 90%;
   }
 
   .submit-btn {
