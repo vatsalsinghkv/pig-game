@@ -428,6 +428,10 @@ form {
   .player--1 {
     padding-bottom: 17rem;
   }
+
+  .dice {
+    transform: translate(-50%, -85%);
+  }
   
 }
 
