@@ -7,6 +7,13 @@ const diceEl = document.querySelector('.dice');
 const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
+const btnInfo = document.querySelector('.btn--info');
+
+// Modal-Elements
+const modal = document.querySelector('.modal');
+const closeBtn = document.querySelector('.close-modal');
+const overlay = document.querySelector('.overlay');
+const submitBtn = document.querySelector('.submit-btn');
 
 // Variables
 let activePlayer = 0;
@@ -37,41 +44,17 @@ const formValidation = () => {
 };
 
 // Modal
-const openModal = () => {
-  let modal = document.querySelector('.modal');
-  let closeBtn = document.querySelector('.close-modal');
-  let overlay = document.querySelector('.overlay');
-  let submitBtn = document.querySelector('.submit-btn');
+const showModal = () => {
+  overlay.classList.remove('hidden');
+  modal.classList.remove('hidden');
+  closeBtn.classList.remove('hidden');
+}
 
-  showModal();
-
-  closeBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', closeModal);
-  submitBtn.addEventListener('click', () => {
-    closeModal();
-    formValidation();
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeModal();
-    else if (e.key == 'Enter') {
-      closeModal();
-      formValidation();
-    }
-  });
-
-  function showModal() {
-    overlay.classList.remove('hidden');
-    modal.classList.remove('hidden');
-    closeBtn.classList.remove('hidden');
-  }
-
-  function closeModal() {
-    overlay.classList.add('hidden');
-    modal.classList.add('hidden');
-    closeBtn.classList.add('hidden');
-  }
-};
+const closeModal = () => {
+  overlay.classList.add('hidden');
+  modal.classList.add('hidden');
+  closeBtn.classList.add('hidden');
+}
 
 // Refresh: init latest scores
 const refresh = () => {
@@ -84,26 +67,19 @@ const refresh = () => {
 
 const switchPlayer = () => {
   refresh();
-  document
-    .querySelector(`.player--${activePlayer}`)
-    .classList.remove('player--active');
+  document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
 
   activePlayer = activePlayer == 1 ? 0 : 1;
 
-  document
-    .querySelector(`.player--${activePlayer}`)
-    .classList.add('player--active');
+  document.querySelector(`.player--${activePlayer}`).classList.add('player--active');
 };
 
 const reset = () => {
   if (!hasNotWon) {
-    document
-      .querySelector('.player--winner')
-      .classList.remove('player--winner');
+    document.querySelector('.player--winner').classList.remove('player--winner');
 
     if (name[activePlayer]) {
-      document.querySelector(`#name--${activePlayer}`).textContent =
-        name[activePlayer];
+      document.querySelector(`#name--${activePlayer}`).textContent = name[activePlayer];
     } else {
       document.querySelector(`#name--${activePlayer}`).textContent = `Player ${activePlayer + 1}`;
     }
@@ -128,18 +104,70 @@ const reset = () => {
   diceEl.classList.add('hidden');
 };
 
-reset();
-openModal();
+// Animate Keys 
+const animateKey = (key) => {
+  key.classList.add('pressed');
+  setTimeout(() => key.classList.remove('pressed'), 100);
+}
 
-// Dice Roll functionality
-btnRoll.addEventListener('click', () => {
+// Starts
+
+reset();
+showModal();
+
+// MODAl EVENTS
+closeBtn.addEventListener('click', closeModal);
+
+overlay.addEventListener('click', closeModal);
+
+submitBtn.addEventListener('click', () => {
+  closeModal();
+  formValidation();
+});
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') closeModal();
+  else if (e.key == 'Enter') {
+    closeModal();
+    formValidation();
+  }
+});
+
+btnInfo.addEventListener('click', () => {
+  let finalScoreEl = [
+    document.querySelector(`#score--0`).textContent,
+    document.querySelector(`#score--1`).textContent
+  ];
+
+  let input = document.querySelectorAll('input[type="text"');
+
+  if(!(finalScoreEl[0] == 0 && finalScoreEl[1] == 0)) {
+    input.forEach(item => {
+      item.setAttribute('disabled', true);
+      item.setAttribute('placeholder', 'Enabled when new game starts');
+    });
+  } else {
+    input.forEach(item => {
+      item.removeAttribute('disabled');
+      item.removeAttribute('placeholder');
+    });
+  }
+
+  showModal();
+});
+
+// GAME FUNCTIONS
+
+btnRoll.addEventListener('click', (e) => {
+  animateKey(e.target);
+
   if (hasNotWon) {
     refresh();
 
     const dice = Math.floor(Math.random() * 6) + 1;
 
     diceEl.classList.remove('hidden');
-    diceEl.src = `dice-${dice}.png`;
+    diceEl.src = `images/dice-${dice}.png`;
 
     if (dice == 1) {
       currentScoreEl.textContent = 0;
@@ -152,7 +180,9 @@ btnRoll.addEventListener('click', () => {
 });
 
 // Hold Btn Functionallity
-btnHold.addEventListener('click', () => {
+btnHold.addEventListener('click', (e) => {
+  animateKey(e.target);
+
   if (hasNotWon) {
     refresh();
 
@@ -174,4 +204,7 @@ btnHold.addEventListener('click', () => {
   }
 });
 
-btnNew.addEventListener('click', reset);
+btnNew.addEventListener('click', (e) => {
+  animateKey(e.target);
+  reset();
+});
