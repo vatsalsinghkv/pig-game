@@ -160,9 +160,9 @@ btnInfo.addEventListener('click', () => {
 // GAME FUNCTIONS
 
 btnRoll.addEventListener('click', (e) => {
-  animateKey(e.target);
-
+  
   if (hasNotWon) {
+    animateKey(e.target);
     refresh();
 
     const dice = Math.floor(Math.random() * 6) + 1;
@@ -182,9 +182,9 @@ btnRoll.addEventListener('click', (e) => {
 
 // Hold Btn Functionallity
 btnHold.addEventListener('click', (e) => {
-  animateKey(e.target);
-
+  
   if (hasNotWon) {
+    animateKey(e.target);
     refresh();
 
     if (Number(currentScore)) {
