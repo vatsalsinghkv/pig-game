@@ -337,6 +337,7 @@ form {
   
   .modal {
     width: 80%;
+    font-size: 2rem;
   }
 }
 
@@ -355,17 +356,19 @@ form {
     flex-direction: column;
   }
 
-  .player {
-    padding: 6rem 8rem;
+  .player--0 {
+    padding-top: 15rem;
+    padding-bottom: 10rem;
   }
 
   .player--1 {
-    padding-bottom: 17rem;
+    padding-top: 10rem;
+    padding-bottom: 15rem;
   }
 
   .dice {
     top: 50%;
-    transform: translate(-50%, -100%);
+    transform: translate(-50%, -50%);
   }
 
   .btn {
@@ -373,15 +376,14 @@ form {
   }
 
   .btn--new {
-    top: calc(100% - 38px - 2.8rem);
-    left: 18%;
-    bottom: 2.8rem;
+    top: 2.8rem;
+    left: 50%;
     background-color: #fff;
   }
 
   .btn--roll {
     top: calc(100% - 38px - 2.8rem);
-    left: 50%;
+    left: 15%;
     bottom: 2.8rem;
     background-color: #fff;
   }
@@ -396,15 +398,22 @@ form {
   .btn--info {
     right: 10px;
     bottom: 10px;
-    padding: 1.5%;
+    padding: 1.5rem;
+  }
+
+  .modal {
+    top: 35%
+  }
+}
+
+@media screen and (max-width: 559px) {
+  
+  .btn--roll {
+    left: 20%;
   }
 }
 
 @media screen and (max-width: 467px) {
-
-  .btn--roll {
-    left: 53.5%;
-  }
 
   .modal {
     padding: 4.5rem;
@@ -422,24 +431,7 @@ form {
 
   html {
     font-size: 6px;
-  }
-
-  body {
-    align-items: center;
-  }
-
-  .player {
-    padding: 10rem 6rem;
-  }
-
-  .player--1 {
-    padding-bottom: 17rem;
-  }
-
-  .dice {
-    transform: translate(-50%, -85%);
-  }
-  
+  }  
 }
 
 @media screen and (max-width: 359px) {
@@ -450,38 +442,35 @@ form {
 
   body {
     padding: 3%;
+  }  
+
+  .btn--hold, .btn--roll {
+    top: calc(100% - 18px - 5rem);
   }
 
-  .player {
-    padding: 12rem 6rem;
+  .btn--roll {
+    left: 18%;
   }
-
-  .player--1 {
-    padding-bottom: 20rem;
-  }
-  
 }
 
 @media screen and (max-width: 281px) {
 
   html {
-    font-size: 3.5px;
+    font-size: 3.75px;
   }
 
-  body {
-    padding: 3%;
+  .btn--hold, .btn--roll {
+    top: calc(100% - 18px - 3.75rem);
+  }
+}
+
+@media screen and (max-width: 236px) {
+
+  .btn--hold {
+    left: 80%;
   }
 
-  .player {
-    padding: 20rem 5rem;
+  .btn--roll {
+    left: 25%;
   }
-
-  .player--1 {
-    padding-bottom: 25rem;
-  }
-
-  .dice {
-    transform: translate(-50%, -75%);
-  }
-
 }

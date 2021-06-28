@@ -30,6 +30,7 @@ let name = [];
 
 // Modal-Form
 const formValidation = () => {
+  name = [];
   name.push(document.getElementById('name-0').value);
   name.push(document.getElementById('name-1').value);
 
@@ -48,13 +49,13 @@ const showModal = () => {
   overlay.classList.remove('hidden');
   modal.classList.remove('hidden');
   closeBtn.classList.remove('hidden');
-}
+};
 
 const closeModal = () => {
   overlay.classList.add('hidden');
   modal.classList.add('hidden');
   closeBtn.classList.add('hidden');
-}
+};
 
 // Refresh: init latest scores
 const refresh = () => {
@@ -85,7 +86,7 @@ const reset = () => {
     }
 
     hasNotWon = true;
-  }
+  };
 
   refresh();
   currentScoreEl.textContent = 0;
@@ -108,7 +109,7 @@ const reset = () => {
 const animateKey = (key) => {
   key.classList.add('pressed');
   setTimeout(() => key.classList.remove('pressed'), 100);
-}
+};
 
 // Starts
 
