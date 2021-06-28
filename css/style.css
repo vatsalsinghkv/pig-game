@@ -436,10 +436,6 @@ form {
   html {
     font-size: 6px;
   }  
-
-  body {
-    align-items: center;
-  }
 }
 
 @media screen and (max-width: 361px) {
