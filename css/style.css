@@ -437,8 +437,8 @@ form {
     font-size: 6px;
   }  
 
-  .modal {
-    top: 40%
+  body {
+    align-items: center;
   }
 }
 
@@ -460,9 +460,6 @@ form {
     left: 18%;
   }
 
-  .modal {
-    top: 35%
-  }
 }
 
 @media screen and (max-width: 281px) {
@@ -475,9 +472,6 @@ form {
     top: calc(100% - 18px - 3.75rem);
   }
 
-  .modal {
-    top: 28%
-  }
 }
 
 @media screen and (max-width: 236px) {
