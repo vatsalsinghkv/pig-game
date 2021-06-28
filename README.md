@@ -1,6 +1,6 @@
 # Welcome to Pig Game - 
 
-This project is created by me [Vatsal Singh](https://www.github.com/vatsalsinghkv). 
+This project is created by me [(Vatsal Singh)](https://www.github.com/vatsalsinghkv). 
 
 ## Table of contents
 
