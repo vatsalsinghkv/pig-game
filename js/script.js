@@ -27,7 +27,7 @@ let finalScore;
 let name = [];
 
 // Overlay height bug 
-overlay.style.height = `${window.innerHeight}px`;
+overlay.style.height = `${window.outerHeight}px`;
 
 // FUNCTIONS
 
