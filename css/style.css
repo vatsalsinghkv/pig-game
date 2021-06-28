@@ -292,7 +292,7 @@ form {
   padding: 1.25rem 1.75rem;
 
   border: #cfcfcf 1px solid;
-  border-radius: 5px;
+  border-radius: .35rem;
 }
 
 .form-input:focus {
@@ -300,9 +300,13 @@ form {
   outline-color: rgba(191, 46, 52, 0.8);
 }
 
+.btn-container {
+  text-align: end;
+}
+
 .submit-btn {
-  display: block;
-  margin: 2.5rem 0 0 auto;
+  display: inline-block;
+  margin: 2.5rem 0 0 0;
   padding: 1.25rem 3.5rem;
 
   color: #fff;
@@ -311,7 +315,7 @@ form {
   font-size: 1.75rem;
 
   border: none;
-  border-radius: 4px;
+  border-radius: .35rem;
   cursor: pointer;
   transition: background 1s;
 }
