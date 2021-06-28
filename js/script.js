@@ -13,7 +13,7 @@ const btnInfo = document.querySelector('.btn--info');
 const modal = document.querySelector('.modal');
 const closeBtn = document.querySelector('.close-modal');
 const overlay = document.querySelector('.overlay');
-const submitBtn = document.querySelector('.submit-btn');
+const btnSubmit = document.querySelector('.btn-submit');
 
 // Variables
 let activePlayer = 0;
@@ -25,9 +25,6 @@ let finalScoreEl;
 let finalScore;
 
 let name = [];
-
-// Overlay height bug 
-overlay.style.height = `${window.outerHeight}px`;
 
 // FUNCTIONS
 
@@ -124,7 +121,7 @@ closeBtn.addEventListener('click', closeModal);
 
 overlay.addEventListener('click', closeModal);
 
-submitBtn.addEventListener('click', () => {
+btnSubmit.addEventListener('click', () => {
   closeModal();
   formValidation();
 });
@@ -138,6 +135,7 @@ document.addEventListener('keydown', function (e) {
 });
 
 btnInfo.addEventListener('click', () => {
+  
   let finalScoreEl = [
     document.querySelector(`#score--0`).textContent,
     document.querySelector(`#score--1`).textContent
