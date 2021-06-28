@@ -6,9 +6,12 @@ This project is created by me [Vatsal Singh](https://www.github.com/vatsalsinghk
 
 - [Overview](#overview)
   - [The Project](#the-project)
-  - [How to Play](#how-to-play)
+  - [How to play](#how-to-play)
   - [Screenshot](#screenshot)
   - [Links](#links)
+- [Unresolved bug](#uresolved-bug)
+  - [Bug screenshot](#bug-screenshot)
+  - [Methods I tried](#methods-i-tried)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
@@ -17,8 +20,8 @@ This project is created by me [Vatsal Singh](https://www.github.com/vatsalsinghk
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-## Overview
 
+## Overview
 
 ### The project
 
@@ -29,7 +32,7 @@ Users should be able to:
 - Change the names at the starting of each game
 - See the rules at any time
 
-### How to Play
+### How to play
 
 - If the player rolls a 1, they score nothing and it becomes the next player's turn.
 - If the player rolls any other number, it is added to their recent score and the player's turn continues.
@@ -46,6 +49,51 @@ Users should be able to:
 - Live Site URL: [https://vatsalsinghkv.github.io/pig-game/](https://vatsalsinghkv.github.io/pig-game)
 
 
+## Unresolved Bug
+
+### Bug screenshot
+
+![](./screenshots/bug-1.png)
+![](./screenshots/bug-2.png)
+
+So the issue I am facing is this, I've made `.overlay` like this:
+```
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+```
+But when I open this in Mobile browser (like chrome), It's overlay covers whole screen but when I scroll down and brower's nav goes up, I get empty space at the bottom of the hight of browser's nav
+
+### Methods I tried
+
+- `height: 100vh`
+```css
+.overlay {
+  position: absolute;
+  height: 100vh;
+}
+```
+
+- `bottom: 0`
+```css
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+```
+
+- Height is equal to `window.innerHeight`
+```js
+const overlay = document.querySelector('.overlay');
+overlay.style.height = `${window.innerHeight}px`;
+```
+
+
 ## My process
 
 ### Built with
@@ -58,6 +106,7 @@ Users should be able to:
 ### What I learned
 
 I've learned lot of stuff in this challenge: 
+
 
 - How to make a Modal.
 
@@ -137,6 +186,7 @@ btnInfo.addEventListener('click', showModal);
 closeBtn.addEventListener('click', closeBtn);
 ```
 
+
 - About forms.
 
 ```html
@@ -210,6 +260,7 @@ const formValidation = () => {
 };
 ```
 
+
 - How to animate pressed buttons.
 
 ```css
@@ -231,6 +282,7 @@ btnInfo.addEventListener('click', (e) => {
   animateKey(e.target);
 });
 ```
+
 
 - How to make a info (modal calling) button.
 
@@ -267,6 +319,7 @@ btnInfo.addEventListener('click', (e) => {
 btnInfo.addEventListener('click', showModal);
 ```
 
+
 - How to disable `input` at runtime.
 
 ```js
@@ -276,6 +329,7 @@ if(condition) {
   input.forEach(item => item.removeAttribute('disabled'));
 }
 ```
+
 
 - I have improved my logical and debugging skills.
 
