@@ -26,6 +26,9 @@ let finalScore;
 
 let name = [];
 
+// Overlay height bug 
+overlay.style.height = `${window.innerHeight}px`;
+
 // FUNCTIONS
 
 // Modal-Form
@@ -45,7 +48,7 @@ const formValidation = () => {
 };
 
 // Modal
-const showModal = () => {
+const showModal = () => {  
   overlay.classList.remove('hidden');
   modal.classList.remove('hidden');
   closeBtn.classList.remove('hidden');
