@@ -9,7 +9,7 @@ This project is created by me [Vatsal Singh](https://www.github.com/vatsalsinghk
   - [How to play](#how-to-play)
   - [Screenshot](#screenshot)
   - [Links](#links)
-- [Unresolved bug](#uresolved-bug)
+- [Unresolved bug](#unresolved-bug)
   - [Bug screenshot](#bug-screenshot)
   - [Methods I tried](#methods-i-tried)
 - [My process](#my-process)
@@ -49,7 +49,7 @@ Users should be able to:
 - Live Site URL: [https://vatsalsinghkv.github.io/pig-game/](https://vatsalsinghkv.github.io/pig-game)
 
 
-## Unresolved Bug
+## Unresolved bug
 
 ### Bug screenshot
 
