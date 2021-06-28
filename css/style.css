@@ -434,7 +434,7 @@ form {
   }  
 }
 
-@media screen and (max-width: 359px) {
+@media screen and (max-width: 361px) {
 
   html {
     font-size: 5px;
