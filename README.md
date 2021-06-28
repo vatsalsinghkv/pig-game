@@ -30,6 +30,7 @@ Users should be able to:
 - View the optimal layout for the app depending on their device's screen size
 - See hover states for all interactive elements on the page
 - Change the names at the starting of each game
+- Name can't be more than 12 characters
 - See the rules at any time
 
 ### How to play
@@ -100,7 +101,7 @@ overlay.style.height = `${window.innerHeight}px`;
 
 - CSS custom properties
 - Flexbox
-- Vanila JavaScript
+- Vanilla JavaScript
 
 
 ### What I learned
