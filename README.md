@@ -53,8 +53,8 @@ Users should be able to:
 
 ### Bug screenshot
 
-![](./screenshots/bug-1.png)
-![](./screenshots/bug-2.png)
+![](./screenshots/bug-1.jpg)
+![](./screenshots/bug-2.jpg)
 
 So the issue I am facing is this, I've made `.overlay` like this:
 ```
