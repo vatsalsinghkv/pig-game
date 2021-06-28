@@ -436,6 +436,21 @@ form {
   html {
     font-size: 6px;
   }  
+
+  main {
+    height: 100%;
+  }
+
+  .score {
+    margin: auto 0;
+  }
+
+  .btn--info {
+    top: 3%;
+    bottom: auto;
+    right: 5%;
+  }
+
 }
 
 @media screen and (max-width: 361px) {
@@ -443,10 +458,6 @@ form {
   html {
     font-size: 5px;
   }
-
-  body {
-    padding: 3%;
-  }  
 
   .btn--hold, .btn--roll {
     top: calc(100% - 18px - 5rem);
