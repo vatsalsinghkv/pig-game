@@ -375,10 +375,6 @@ form {
     transform: translate(-50%, -50%);
   }
 
-  .btn {
-    position: fixed;
-  }
-
   .btn--new {
     top: 2.8rem;
     left: 50%;

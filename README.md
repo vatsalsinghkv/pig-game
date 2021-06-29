@@ -9,14 +9,14 @@ This project is created by me [(Vatsal Singh)](https://www.github.com/vatsalsing
   - [How to play](#how-to-play)
   - [Screenshot](#screenshot)
   - [Links](#links)
-- [Unresolved bug](#unresolved-bug)
-  - [Bug screenshot](#bug-screenshot)
-  - [Methods I tried](#methods-i-tried)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
+- [Unresolved bug](#unresolved-bug)
+  - [Bug screenshot](#bug-screenshot)
+  - [Methods I tried](#methods-i-tried)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
@@ -48,51 +48,6 @@ Users should be able to:
 ### Links
 
 - Live Site URL: [https://vatsalsinghkv.github.io/pig-game/](https://vatsalsinghkv.github.io/pig-game)
-
-
-## Unresolved bug
-
-### Bug screenshot
-
-![](./screenshots/bug-1.jpg)
-![](./screenshots/bug-2.jpg)
-
-So the issue I am facing is this, I've made `.overlay` like this:
-```
-.overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-}
-```
-But when I open this in Mobile browser (like chrome), It's overlay covers whole screen but when I scroll down and brower's nav goes up, I get empty space at the bottom of the hight of browser's nav
-
-### Methods I tried
-
-- `height: 100vh`
-```css
-.overlay {
-  position: absolute;
-  height: 100vh;
-}
-```
-
-- `bottom: 0`
-```css
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-```
-
-- Height is equal to `window.innerHeight`
-```js
-const overlay = document.querySelector('.overlay');
-overlay.style.height = `${window.innerHeight}px`;
-```
 
 
 ## My process
@@ -355,6 +310,52 @@ if(condition) {
 - [TheNetNinja Youtube](https://www.youtube.com/c/TheNetNinja) - This helped me learn jQuery, GitHub, CSS Grid. This guy is legend there's lot of stuff to learn, which I will be learning in future.
 - [GeeksForGeeks](https://www.geeksforgeeks.org/) - This is amazing website for articles, snippets, projects, algorithms etc.
 - [MDN Docs](https://developer.mozilla.org/en-US/) - This is an amazing reference which helped me finally understand detailed concepts like data- attr, aria attr, input range etc.
+
+
+## Unresolved bug
+
+### Bug screenshot
+
+![](./screenshots/bug-1.jpg)
+![](./screenshots/bug-2.jpg)
+
+So the issue I am facing is this, I've made `.overlay` like this:
+```
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+```
+But when I open this in Mobile browser (like chrome), It's overlay covers whole screen but when I scroll down and brower's nav goes up, I get empty space at the bottom of the hight of browser's nav
+
+### Methods I tried
+
+- `height: 100vh`
+```css
+.overlay {
+  position: absolute;
+  height: 100vh;
+}
+```
+
+- `bottom: 0`
+```css
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+```
+
+- Height is equal to `window.innerHeight`
+```js
+const overlay = document.querySelector('.overlay');
+overlay.style.height = `${window.innerHeight}px`;
+```
+
 
 ## Author
 
