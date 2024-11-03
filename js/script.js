@@ -45,7 +45,7 @@ const formValidation = () => {
 };
 
 // Modal
-const showModal = () => {  
+const showModal = () => {
   overlay.classList.remove('hidden');
   modal.classList.remove('hidden');
   closeBtn.classList.remove('hidden');
@@ -68,25 +68,34 @@ const refresh = () => {
 
 const switchPlayer = () => {
   refresh();
-  document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove('player--active');
 
   activePlayer = activePlayer == 1 ? 0 : 1;
 
-  document.querySelector(`.player--${activePlayer}`).classList.add('player--active');
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.add('player--active');
 };
 
 const reset = () => {
   if (!hasNotWon) {
-    document.querySelector('.player--winner').classList.remove('player--winner');
+    document
+      .querySelector('.player--winner')
+      .classList.remove('player--winner');
 
     if (name[activePlayer]) {
-      document.querySelector(`#name--${activePlayer}`).textContent = name[activePlayer];
+      document.querySelector(`#name--${activePlayer}`).textContent =
+        name[activePlayer];
     } else {
-      document.querySelector(`#name--${activePlayer}`).textContent = `Player ${activePlayer + 1}`;
+      document.querySelector(`#name--${activePlayer}`).textContent = `Player ${
+        activePlayer + 1
+      }`;
     }
 
     hasNotWon = true;
-  };
+  }
 
   refresh();
   currentScoreEl.textContent = 0;
@@ -100,12 +109,14 @@ const reset = () => {
 
   activePlayer = 0;
   document.querySelector('.player--active').classList.remove('player--active');
-  document.querySelector(`.player--${activePlayer}`).classList.add('player--active');
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.add('player--active');
 
   diceEl.classList.add('hidden');
 };
 
-// Animate Keys 
+// Animate Keys
 const animateKey = (key) => {
   key.classList.add('pressed');
   setTimeout(() => key.classList.remove('pressed'), 100);
@@ -135,21 +146,20 @@ document.addEventListener('keydown', function (e) {
 });
 
 btnInfo.addEventListener('click', () => {
-  
   let finalScoreEl = [
     document.querySelector(`#score--0`).textContent,
-    document.querySelector(`#score--1`).textContent
+    document.querySelector(`#score--1`).textContent,
   ];
 
   let input = document.querySelectorAll('input[type="text"');
 
-  if(!(finalScoreEl[0] == 0 && finalScoreEl[1] == 0)) {
-    input.forEach(item => {
+  if (!(finalScoreEl[0] == 0 && finalScoreEl[1] == 0)) {
+    input.forEach((item) => {
       item.setAttribute('disabled', true);
       item.setAttribute('placeholder', 'Enabled when new game starts');
     });
   } else {
-    input.forEach(item => {
+    input.forEach((item) => {
       item.removeAttribute('disabled');
       item.removeAttribute('placeholder');
     });
@@ -161,7 +171,6 @@ btnInfo.addEventListener('click', () => {
 // GAME FUNCTIONS
 
 btnRoll.addEventListener('click', (e) => {
-  
   if (hasNotWon) {
     animateKey(e.target);
     refresh();
@@ -183,7 +192,6 @@ btnRoll.addEventListener('click', (e) => {
 
 // Hold Btn Functionallity
 btnHold.addEventListener('click', (e) => {
-  
   if (hasNotWon) {
     animateKey(e.target);
     refresh();
@@ -193,11 +201,14 @@ btnHold.addEventListener('click', (e) => {
       finalScoreEl.textContent = finalScore;
       currentScoreEl.textContent = 0;
 
-      if (finalScore >= 50) {
+      if (finalScore >= 100) {
         hasNotWon = false;
 
-        document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
-        document.querySelector(`#name--${activePlayer}`).textContent = 'Winner! 🎉';
+        document
+          .querySelector(`.player--${activePlayer}`)
+          .classList.add('player--winner');
+        document.querySelector(`#name--${activePlayer}`).textContent =
+          'Winner! 🎉';
         diceEl.classList.add('hidden');
       } else {
         switchPlayer();
